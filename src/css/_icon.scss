@@ -1,0 +1,55 @@
+.ham {
+  height: 32px;
+  width: 32px;
+  position: relative;
+  z-index: 5;
+}
+.ham__line {
+  background-color: #000;
+  height: 2px;
+  width: 80%;
+}
+.ham__line:first-child {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.ham__line:last-child {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.ham__line:nth-child(2) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+// shopping cart icon start
+.cart {
+  width: 32px;
+  height: 32px;
+}
+svg.icon__plus {
+  width: 32px;
+  height: 32px;
+  background: var(--primary);
+  border-radius: 50%;
+  padding: 6px;
+  position: absolute;
+  top: 70%;
+  right: 5%;
+  transform: translateY(-50%);
+  fill: #fff;
+}
+svg.icon__like,
+.icon__like__no {
+  width: 32px;
+  height: 32px;
+  color: #d7443e;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}

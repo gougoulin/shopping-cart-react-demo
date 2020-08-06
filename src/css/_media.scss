@@ -1,0 +1,35 @@
+@media screen and (min-width: 540px) {
+  .container__cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    width: calc(180px * 3 + 4px * 3);
+  }
+}
+@media screen and (min-width: 768px) {
+  .nav {
+    width: 40%;
+  }
+  .container__cards {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    width: 750px;
+  }
+
+  .product__title {
+    font-size: 1rem;
+  }
+  .product__price {
+    font-size: 1rem;
+  }
+}
+@media screen and (min-width: 900px) {
+  .nav {
+    width: 30%;
+  }
+  .container__cards {
+    grid-template-columns: repeat(6, 1fr);
+    padding: 20px;
+    gap: 10px;
+    width: 1200px;
+  }
+}

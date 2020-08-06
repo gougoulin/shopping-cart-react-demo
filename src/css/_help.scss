@@ -1,0 +1,25 @@
+.help__container {
+  padding: 20px;
+}
+
+.container__qa {
+  padding: 10px;
+}
+
+.question {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  span:last-child {
+    font-size: 1rem;
+    padding: 0 20px;
+  }
+}
+
+.answer {
+  background: var(--bg-light);
+  line-height: 2rem;
+  font-size: 1rem;
+  padding: 0.2em 0.5em;
+}

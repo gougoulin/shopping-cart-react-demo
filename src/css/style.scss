@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap");
+// all mixins
+@import "mixin";
+// general setting
+@import "general";
+// common classes
+@import "common";
+// all icons
+@import "icon";
+// import header css
+@import "header";
+// import the filter page
+@import "filter";
+// home page css
+@import "home";
+// help page style
+@import "help";
+
+// last one, media queries
+@import "media";

@@ -1,0 +1,27 @@
+.mask {
+  height: 100vh;
+  width: 100%;
+  background: var(--primary);
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  transition: 1s ease-in-out;
+  clip-path: circle(1% at 1% 1%);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+  text-transform: capitalize;
+}
+.mask.in {
+  clip-path: circle(200% at 5%);
+}
+
+// filter
+.filter__section {
+  padding-bottom: 20px;
+}
+.filter__section__title {
+  font-size: 1rem;
+  text-transform: uppercase;
+}
