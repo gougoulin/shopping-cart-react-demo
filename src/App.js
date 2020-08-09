@@ -11,7 +11,11 @@ import Help from "./page/help";
 import Contact from "./page/contact";
 import Filter from "./page/filter";
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const store = createStore(
+  rootReducer,
+  applyMiddleware(thunk) + window.__REDUX_DEVTOOLS_EXTENSION__ &&
+    window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 function App() {
   return (

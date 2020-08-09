@@ -6,11 +6,12 @@
   height: 100%;
   display: grid;
   grid-template-rows: 1fr;
+  position: relative;
 }
 .container__cards {
   display: grid;
   grid-template-rows: repeat((auto-fit, minx(200px, 1fr)));
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 2px;
   padding: 2px;
   justify-items: center;
@@ -35,7 +36,7 @@
   justify-content: center;
   opacity: 1;
   flex-flow: column nowrap;
-  clip-path: circle(1% at 92% 100%);
+  clip-path: circle(1% at 92% 48%);
 
   .button {
     margin: 8px 0;

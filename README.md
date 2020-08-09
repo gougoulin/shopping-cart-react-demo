@@ -23,8 +23,7 @@
 
 - getProducts(number) - return number of products, default 10
 - getProductByID(id_product) -
-- likeProduct(id_product)
-- unlikeProduct(id_product)
+- toggleLikeProduct(id_product)
 - decreaseProductQuantity(num = 1)
 - increaseProductQuantity(num = 1)
 

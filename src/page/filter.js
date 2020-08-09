@@ -1,13 +1,15 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useSelector, useDispatch } from "react-redux";
 
 function Filter() {
   const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = (data) => console.log(data);
+  const isMenuClicked = useSelector((state) => state.products.isMenuClicked);
 
   console.log(watch("example")); // watch input value by passing the name of it
   return (
-    <div className="mask">
+    <div className={isMenuClicked ? "mask in" : "mask"}>
       <form action="" onSubmit={handleSubmit(onSubmit)}>
         <section className="filter__section">
           <legend className="filter__section__title">Category</legend>

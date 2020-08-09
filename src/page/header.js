@@ -2,8 +2,10 @@ import React from "react";
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import Ham from "../component/ham";
 import Cart from "../asset/svg/cart.svg";
+import { useSelector } from "react-redux";
 
 function Header() {
+  const inCart = useSelector((state) => state.products.cart.length);
   return (
     <>
       <header id="header">
@@ -27,7 +29,7 @@ function Header() {
           <li className="nav__item">
             <Link className="nav__link">
               <img className="cart" src={Cart} alt="shopping cart" />
-              <span>5</span>
+              <span>{inCart}</span>
             </Link>
           </li>
         </ul>

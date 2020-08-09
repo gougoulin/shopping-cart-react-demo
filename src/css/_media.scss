@@ -1,8 +1,9 @@
 @media screen and (min-width: 540px) {
   .container__cards {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 4px;
-    width: calc(180px * 3 + 4px * 3);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    // width: calc(180px * 3 + 4px * 3);
+    width: 100%;
   }
 }
 @media screen and (min-width: 768px) {
@@ -10,9 +11,10 @@
     width: 40%;
   }
   .container__cards {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    width: 750px;
+    // width: 750px;
+    width: 100%;
   }
 
   .product__title {
@@ -21,13 +23,24 @@
   .product__price {
     font-size: 1rem;
   }
+  .product {
+    gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+  }
+  .container__product__info {
+    grid-column: 2/3;
+  }
 }
 @media screen and (min-width: 900px) {
   .nav {
     width: 30%;
   }
+  .modal__container {
+    width: 62%;
+  }
   .container__cards {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     padding: 20px;
     gap: 10px;
     width: 1200px;

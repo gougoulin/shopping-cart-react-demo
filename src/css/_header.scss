@@ -2,6 +2,9 @@
   @include flex(space-between, center);
   background: var(--primary);
   padding: 0 10px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 .logo__wrap {
   @include flex(center, center);
