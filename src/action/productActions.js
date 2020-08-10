@@ -22,8 +22,8 @@ export const toggleMenu = () => {
   console.log("action running");
   return { type: TOGGLE_MENU };
 };
-export const putInCart = () => {
-  return { type: PUT_IN_CART };
+export const putInCart = (data) => {
+  return { type: PUT_IN_CART, payload: data };
 };
 export const openModal = (element) => {
   return { type: OPEN_MODAL, payload: element };

@@ -29,7 +29,7 @@ function Header() {
           <li className="nav__item">
             <Link className="nav__link">
               <img className="cart" src={Cart} alt="shopping cart" />
-              <span>{inCart}</span>
+              <span className="badge__cart__num">{inCart}</span>
             </Link>
           </li>
         </ul>

@@ -8,6 +8,7 @@ import {
   updateModalTitle,
 } from "../action/productActions";
 import ProductModalContent from "../page/productModalContent";
+import { putInCart } from "../action/productActions";
 
 function CardProduct(props) {
   const {
@@ -21,14 +22,21 @@ function CardProduct(props) {
     imgAlt,
     isLike,
   } = props.data;
-
+  const data = {
+    id: id,
+    price: price,
+    title: title,
+    imgURI: imgURI,
+    qty: 1,
+  };
   const dispatch = useDispatch();
 
   const pass = <ProductModalContent data={props.data} />;
 
-  const handlePlusClick = (e) => {
+  const handlePlusClick = (e, data) => {
     e.stopPropagation();
     console.log("icon plus clicked");
+    dispatch(putInCart(data));
   };
   /**
    *
@@ -109,7 +117,7 @@ function CardProduct(props) {
 
         <svg
           onClick={(e) => {
-            handlePlusClick(e, pass);
+            handlePlusClick(e, data);
           }}
           className="icon__plus"
           version="1.1"

@@ -129,9 +129,34 @@ const productReducer = (state = init, action) => {
         isMenuClicked: !state.isMenuClicked,
       };
     case PUT_IN_CART:
+      /**
+       * {
+       * id: ,
+       * title: ,
+       * note: ,
+       * qty: ,
+       * price: ,
+       * }
+       */
+      let newCart = [...state.cart];
+      if (state.cart.length === 0) {
+        newCart.push(action.payload);
+      } else {
+        const _ids = state.cart.map((element) => {
+          return element.id;
+        });
+        const _id = _ids.indexOf(action.payload.id);
+        console.log("_ids: ", _ids, _id);
+        if (_id > -1) {
+          newCart[_id].qty = state.cart[_id].qty + action.payload.qty;
+        } else {
+          newCart.push(action.payload);
+        }
+      }
+      console.log(newCart);
       return {
         ...state,
-        cart: [],
+        cart: newCart,
       };
     case UPDATE_MODAL_TITLE:
       return {

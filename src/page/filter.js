@@ -7,7 +7,7 @@ function Filter() {
   const onSubmit = (data) => console.log(data);
   const isMenuClicked = useSelector((state) => state.products.isMenuClicked);
 
-  console.log(watch("example")); // watch input value by passing the name of it
+  // console.log(watch("example")); // watch input value by passing the name of it
   return (
     <div className={isMenuClicked ? "mask in" : "mask"}>
       <form action="" onSubmit={handleSubmit(onSubmit)}>
