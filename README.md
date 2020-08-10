@@ -52,3 +52,14 @@ Collections of Liked Products
 #### Liked Action Creators
 
 - toggleLike()
+
+# Comments
+
+## Further Works
+
+### 1. Restructuring Required
+
+As this is a simple demo app, I didn't spend much time on code structure.
+
+- There are some redundant codes.
+- The presentational and container components are not well seperated.
