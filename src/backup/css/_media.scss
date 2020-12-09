@@ -41,8 +41,8 @@
   }
   .container__cards {
     grid-template-columns: repeat(3, 1fr);
-    padding: 20px;
-    gap: 10px;
-    width: 1200px;
+    padding: 10px;
+    gap: 8px;
+    // width: 100%;
   }
 }

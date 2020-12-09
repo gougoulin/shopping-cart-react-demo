@@ -1,0 +1,114 @@
+{
+  "products": [
+    {
+      "url": "../../../asset/img/earpods.PNG",
+      "price": 199.0,
+      "rating": 1.5,
+      "title": "apple iphone 11",
+      "numReviews": 120,
+      "key": 1,
+      "id": 1,
+      "isLike": false,
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe facilis laborum, ab numquam beatae placeat mollitia, nemo soluta iure vero exercitationem impedit tempore itaque reiciendis quis ipsa, necessitatibus doloribus asperiores!"
+    },
+    {
+      "url": "../../../asset/img/dyson_v11.png",
+      "price": 299.0,
+      "rating": 3.5,
+      "title": "dyson v11",
+      "numReviews": 90,
+      "key": 2,
+      "id": 2,
+      "isLike": false,
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe facilis laborum, ab numquam beatae placeat mollitia, nemo soluta iure vero exercitationem impedit tempore itaque reiciendis quis ipsa, necessitatibus doloribus asperiores!"
+    },
+    {
+      "url": "../../../asset/img/macbook_pro_13.PNG",
+      "price": 399.0,
+      "rating": 3.5,
+      "title": "dyson v11",
+      "numReviews": 490,
+      "key": 3,
+      "id": 3,
+      "isLike": false,
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. enim dolore consequatur eu ducimus iure rerum quia, reiciendis illo deserunt nam tenetur minima id obcaecati ipsam, harum sint aliquid accusamus! Temporibus, nulla."
+    },
+    {
+      "url": "../../../asset/img/iphone11_black.jpg",
+      "price": 699.0,
+      "rating": 4,
+      "title": "Apple iPhone 11 black",
+      "numReviews": 490,
+      "key": 4,
+      "id": 4,
+      "isLike": false,
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. enim dolore consequatur eu ducimus iure rerum quia, reiciendis illo deserunt nam tenetur minima id obcaecati ipsam, harum sint aliquid accusamus! Temporibus, nulla."
+    },
+    {
+      "url": "../../../asset/img/earphone.jpg",
+      "price": 650.0,
+      "rating": 5,
+      "title": "Beats Monster earphone red",
+      "numReviews": 490,
+      "key": 5,
+      "id": 5,
+      "isLike": false,
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. enim dolore consequatur eu ducimus iure rerum quia, reiciendis illo deserunt nam tenetur minima id obcaecati ipsam, harum sint aliquid accusamus! Temporibus, nulla."
+    },
+    {
+      "url": "../../../asset/img/earphone.jpg",
+      "price": 420.0,
+      "rating": 5,
+      "title": "Beats Monster earphone red",
+      "numReviews": 490,
+      "key": 6,
+      "id": 6,
+      "isLike": false,
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. enim dolore consequatur eu ducimus iure rerum quia, reiciendis illo deserunt nam tenetur minima id obcaecati ipsam, harum sint aliquid accusamus! Temporibus, nulla."
+    },
+    {
+      "url": "../../../asset/img/earphone.jpg",
+      "price": 399.0,
+      "rating": 5,
+      "title": "Beats Monster earphone red",
+      "numReviews": 490,
+      "key": 7,
+      "id": 7,
+      "isLike": false,
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. enim dolore consequatur eu ducimus iure rerum quia, reiciendis illo deserunt nam tenetur minima id obcaecati ipsam, harum sint aliquid accusamus! Temporibus, nulla."
+    },
+    {
+      "url": "../../../asset/img/earphone.jpg",
+      "price": 279.0,
+      "rating": 5,
+      "title": "Beats Monster earphone red",
+      "numReviews": 490,
+      "key": 8,
+      "id": 8,
+      "isLike": false,
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. enim dolore consequatur eu ducimus iure rerum quia, reiciendis illo deserunt nam tenetur minima id obcaecati ipsam, harum sint aliquid accusamus! Temporibus, nulla."
+    },
+    {
+      "url": "../../../asset/img/earphone.jpg",
+      "price": 1200.0,
+      "rating": 5,
+      "title": "Beats Monster earphone red",
+      "numReviews": 490,
+      "key": 9,
+      "id": 9,
+      "isLike": false,
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. enim dolore consequatur eu ducimus iure rerum quia, reiciendis illo deserunt nam tenetur minima id obcaecati ipsam, harum sint aliquid accusamus! Temporibus, nulla."
+    },
+    {
+      "url": "../../../asset/img/earphone.jpg",
+      "price": 250.0,
+      "rating": 5,
+      "title": "Beats Monster earphone red",
+      "numReviews": 490,
+      "key": 10,
+      "id": 10,
+      "isLike": false,
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. enim dolore consequatur eu ducimus iure rerum quia, reiciendis illo deserunt nam tenetur minima id obcaecati ipsam, harum sint aliquid accusamus! Temporibus, nulla."
+    }
+  ]
+}

@@ -4,6 +4,7 @@ import Ham from "../component/ham";
 import Cart from "../asset/svg/cart.svg";
 import { useSelector } from "react-redux";
 
+// Header Component of each page
 function Header() {
   const inCart = useSelector((state) => state.products.cart.length);
   return (
@@ -12,22 +13,22 @@ function Header() {
         <div className="logo__wrap">
           <Ham />
           <Link className="logo__link" to="/">
-            <h2 className="logo">aotao</h2>
+            <h2 className="logo">aotao mobile</h2>
           </Link>
         </div>
         <ul className="nav">
           <li className="nav__item">
             <Link to="/help" className="nav__link">
-              help
+              search
             </Link>
           </li>
           <li className="nav__item">
             <Link to="/contact" className="nav__link">
-              contact
+              sign in
             </Link>
           </li>
           <li className="nav__item">
-            <Link className="nav__link">
+            <Link to="/checkout" className="nav__link">
               <img className="cart" src={Cart} alt="shopping cart" />
               <span className="badge__cart__num">{inCart}</span>
             </Link>

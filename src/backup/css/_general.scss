@@ -6,11 +6,11 @@
   box-sizing: border-box;
 }
 :root {
-  --header-height: 8vh;
+  --header-height: 96px;
   --primary: rgb(67, 233, 164);
   --primary-hover: rgb(65, 255, 176);
   --bg-card: #fff;
-  --bg-light: #f3f3f3;
+  --bg-light: #fdfdfd;
   --shadow: #1b1a1a;
   --danger: rgb(243, 62, 62);
 }
@@ -21,11 +21,12 @@ body {
 
 #root {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   position: relative;
+  top: 0;
   display: grid;
-  grid-template-rows: var(--header-height) 1fr;
-  grid-template-columns: auto;
+  grid-template-rows: auto 1fr auto;
+  // grid-template-columns: auto;
 }
 
 .button {
@@ -81,4 +82,13 @@ body {
 
 .hidden {
   display: none !important;
+}
+
+#footer,
+#footer h2 {
+  background: #3f3f3f;
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
 }

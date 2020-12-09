@@ -1,0 +1,245 @@
+/* fonts from google fonts  */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+
+/* css parameters  */
+:root {
+  --header-height: 96px;
+  --primary: rgb(67, 233, 164);
+  --primary-hover: rgb(65, 255, 176);
+  --bg-card: #fff;
+  --bg-light: #fdfdfd;
+  --shadow: #1b1a1a;
+  --danger: rgb(243, 62, 62);
+}
+
+/* normalization */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* common settings start */
+html {
+  /* set 1rem = 10px with default font size of 16px */
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+a:hover {
+  cursor: pointer;
+  color: var(--danger);
+}
+
+ul {
+  list-style-type: none;
+}
+
+img {
+  width: 100%;
+}
+
+/* common settings end */
+
+/* header start  */
+.header {
+  box-shadow: 0 1px 4px -4px var(--shadow);
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 5;
+}
+
+.logo {
+  text-transform: capitalize;
+}
+
+.header__navbar {
+  /* set the width to 1170px */
+  padding: 1em calc(50% - 585px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__nav {
+  display: flex;
+  align-items: center;
+}
+.header__nav__link {
+  padding: 0 1.5em;
+  text-transform: capitalize;
+}
+
+.header__cart__modal {
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  line-height: 1.2em;
+  font-size: 1em;
+  font-weight: 600;
+  border-radius: 50%;
+  text-align: center;
+  background: red;
+  color: #fff;
+  margin-left: 0.2em;
+}
+/* header end  */
+
+/* footer start */
+.footer {
+  background: var(--shadow);
+  color: var(--bg-light);
+  text-align: center;
+}
+/* footer end */
+
+/* homepage start */
+.homepage {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+.homepage__box {
+  /* set the width to 1170px */
+  padding: 0 calc(50% - 585px);
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+/* aside section start  */
+.homepage__aside {
+  height: 100%;
+  padding: 1rem 1em 0 0;
+  min-width: 200px;
+  /* background: yellow; */
+}
+
+.aside__sticky {
+  position: sticky;
+  top: 100px;
+}
+
+.filterlist__item__title {
+  font-weight: 500;
+  font-size: 1.8rem;
+  text-transform: capitalize;
+  padding-top: 0.5em;
+  padding-bottom: 0.2em;
+}
+
+.filterlist__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.filterlist__link {
+  text-transform: capitalize;
+  font-size: 1.6rem;
+}
+
+.min__price,
+.max__price {
+  font-size: 1.6rem;
+  width: 60px;
+  height: 2em;
+  padding: 0.2em 0.5em;
+}
+
+.btn {
+  font-size: 1.4rem;
+  background: #fff;
+  line-height: 2.4rem;
+  padding: 0 0.8em;
+  border: 1px solid #000;
+  cursor: pointer;
+  border-radius: 0.2rem;
+  text-transform: capitalize;
+  margin-top: 0.5em;
+}
+.btn:hover {
+  color: red;
+}
+
+/* aside section end  */
+
+/* main section start */
+.homepage__main {
+  height: 100%;
+  padding: 1rem 0 1rem 1rem;
+}
+.homepage__products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+.homepage__product__card {
+  background: #fff;
+  height: 320px;
+  display: grid;
+  grid-template-rows: 70% auto;
+  padding: 1rem 0;
+  border-radius: 0.5rem;
+  border: 1px solid #eee;
+}
+
+.homepage__product__card img {
+  object-fit: contain;
+  max-height: 150px;
+}
+
+.product__card__image {
+  position: relative;
+}
+.product__card__image > i {
+  font-size: 2rem;
+  opacity: 0;
+  position: absolute;
+  right: 2rem;
+  bottom: 2rem;
+  cursor: pointer;
+}
+
+.product__card__image:hover > i {
+  opacity: 1;
+}
+
+.stars {
+  margin-right: 1rem;
+}
+.homepage__product__card i {
+  color: red;
+}
+
+.product__card__body {
+  padding: 0 1rem;
+}
+
+.product__card__body > * {
+  padding-bottom: 0.4rem;
+}
+
+.product__card__heading {
+  font-size: 1.6rem;
+  padding-bottom: 0.5em;
+}
+
+.product__rating {
+  font-size: 1rem;
+}
+
+.product__price {
+  font-size: 1.8rem;
+}
+/* main section end */
+/* homepage end */

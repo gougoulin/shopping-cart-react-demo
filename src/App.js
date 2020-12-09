@@ -1,38 +1,27 @@
 import React from "react";
-import "./css/style.scss";
 import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
-import rootReducer from "./reducer";
-import thunk from "redux-thunk";
-import Header from "./page/header";
-import Home from "./page/home";
-import Help from "./page/help";
-import Contact from "./page/contact";
-import Filter from "./page/filter";
 
-const store = createStore(
-  rootReducer,
-  // applyMiddleware(thunk) + window.__REDUX_DEVTOOLS_EXTENSION__ &&
-  //   window.__REDUX_DEVTOOLS_EXTENSION__()
-  applyMiddleware(thunk)
-);
+import "./css/style.css";
+
+import Product from "./pages/product";
+import Home from "./pages/home";
+import ShoppingCart from "./pages/shoppingcart";
+import store from "./store";
 
 function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <Header />
-        <Filter />
         <Switch>
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="/help">
-            <Help />
+          <Route exact path="/product/:id">
+            <Product />
           </Route>
-          <Route exact path="/contact">
-            <Contact />
+          <Route exact path="/cart">
+            <ShoppingCart />
           </Route>
         </Switch>
       </BrowserRouter>

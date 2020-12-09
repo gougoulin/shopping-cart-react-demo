@@ -106,7 +106,7 @@ function Home() {
               view more
             </button>
           </div> */}
-          {/* <Modal>modal</Modal>h */}
+          {/* <Modal>modal</Modal> */}
         </div>
         {/* <Footer /> */}
       </div>

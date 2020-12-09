@@ -1,10 +1,14 @@
 #header {
   @include flex(space-between, center);
-  background: var(--primary);
-  padding: 0 10px;
+  background: #fff;
   position: sticky;
   top: 0;
+  left: 0;
   z-index: 2;
+  box-shadow: 0 2px 4px -4px var(--shadow);
+  width: 100%;
+  padding: 0 calc(50% - 600px);
+  grid-row: 1/2;
 }
 .logo__wrap {
   @include flex(center, center);
@@ -15,8 +19,9 @@
 }
 .logo {
   padding: 0 10px;
-  font-size: 1.5rem;
-  font-weight: 400;
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 .nav {
   @include flex(space-around, center);
@@ -31,6 +36,7 @@
   text-decoration: none;
   font-size: 1rem;
   position: relative;
+  text-transform: capitalize;
 }
 .badge__cart__num {
   width: 1.2rem;
