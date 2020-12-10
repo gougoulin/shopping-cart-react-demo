@@ -1,13 +1,13 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { add2cart, updateQtyPurchased } from "../../actions/add2cartAction";
+import { updateQtyPurchased } from "../../actions/add2cartAction";
 import InputQty from "../common/inputQty";
 import Stars from "../common/stars";
 import ProductCtn from "./productCtn";
 
 const ProductDetail = ({ detail }) => {
   const dispatch = useDispatch();
-  const { url, rating, numReviews, price, description, id } = detail;
+  const { url, rating, numReviews, price, description, id, title } = detail;
   const handleInput = (value) => {
     try {
       dispatch(updateQtyPurchased(value));
@@ -21,7 +21,7 @@ const ProductDetail = ({ detail }) => {
         <img src={url} alt="product" />
       </div>
       <div className="prodcut__profile">
-        <h3>Lorem ipsum dolor sit amet.</h3>
+        <h3>{title}</h3>
         <Stars rating={rating} />
         <p>{numReviews} Customer reviws</p>
         <p>Price: ${price.toFixed(2)}</p>

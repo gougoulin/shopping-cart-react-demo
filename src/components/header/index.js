@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Navbar from "./navbar";
 import { useSelector } from "react-redux";
 
@@ -16,7 +15,5 @@ const Header = (props) => {
     </>
   );
 };
-
-Header.propTypes = {};
 
 export default Header;

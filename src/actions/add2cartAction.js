@@ -1,4 +1,8 @@
-import Data from "./data.json";
+/**
+ * new version, data is fetched from Contentful API
+ */
+// import Data from "./data.json";
+
 import {
   ADD_TO_CART,
   ADD_TO_CART_FAIL,
@@ -8,13 +12,28 @@ import {
   GET_CARTLIST_SUBTOTAL,
   GET_CARTLIST_SUM_PRICE,
 } from "./constants";
+import Client from "../contentful";
 
 const add2cart = (targetID, qty) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     try {
+      const res = await Client.getEntries({
+        content_type: "products",
+        // order: "fields.price",
+      });
+      const data = res.items;
+
+      const products = data.map((item) => {
+        return {
+          id: item.sys.id,
+          ...item.fields,
+          url: item.fields.images[0].fields.file.url,
+        };
+      });
+
       dispatch({
         type: ADD_TO_CART,
-        payload: { productID: targetID, qty: qty ? qty : 1 },
+        payload: { productID: targetID, qty: qty ? qty : 1, products },
       });
     } catch (err) {
       dispatch({ type: ADD_TO_CART_FAIL, payload: err.message });

@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { updateQtyPurchased } from "../../actions/add2cartAction";
 
 const InputQty = (props) => {
-  const dispatch = useDispatch();
   const { placeholder, type, min, max, morestyle, number, handler, id } = props;
 
   const [qty, setQty] = useState(number ? number : "");

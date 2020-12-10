@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getSubtotals, getSumPrice } from "../../actions/add2cartAction";
+import { getSubtotals } from "../../actions/add2cartAction";
 import CartCtn from "./cartCtn";
 
 const Checkout = () => {
@@ -13,9 +13,7 @@ const Checkout = () => {
 
   useEffect(() => {
     dispatch(getSubtotals(cartList.cartItemQtyList, prices));
-    return () => {
-      // cleanup;
-    };
+    return () => {};
   }, []);
 
   return (

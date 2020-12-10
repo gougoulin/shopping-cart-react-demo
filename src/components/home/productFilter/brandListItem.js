@@ -1,18 +1,16 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   getFilteredProducts,
-  selectByBrands,
   toggleBrand,
 } from "../../../actions/filterAction";
 
 const BrandListItem = ({ brand, status }) => {
-  const brands = useSelector((state) => state.filter.brands);
+  // const brands = useSelector((state) => state.filter.brands);
   const dispatch = useDispatch();
   const handleChange = (e) => {
     dispatch(toggleBrand(brand));
-    let checkedBrands = brands || brands.filter((item) => item.isChecked);
-    dispatch(selectByBrands(checkedBrands));
+    // let checkedBrands = brands || brands.filter((item) => item.isChecked);
     dispatch(getFilteredProducts());
   };
   return (

@@ -1,7 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { FILTER_RESET } from "../../../actions/constants";
-import { getFilteredProducts } from "../../../actions/filterAction";
 import Btn from "../../common/btn";
 
 const ResetBtn = ({ btnName }) => {

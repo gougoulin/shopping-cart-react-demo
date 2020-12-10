@@ -8,7 +8,7 @@ import {
   GET_CARTLIST_SUM_PRICE,
   GET_CARTLIST_SUBTOTAL,
 } from "../actions/constants";
-import Data from "../actions/data.json";
+// import Data from "../actions/data.json"; // abandoned, data is from Contentful API now
 
 const CartListReducer = (state = {}, action) => {
   switch (action.type) {
@@ -20,7 +20,7 @@ const CartListReducer = (state = {}, action) => {
       /**
        * fetch the product details
        */
-      const currentDetail = Data.products.find(
+      const currentDetail = action.payload.products.find(
         (item) => item.id.toString() === action.payload.productID.toString()
       );
       /**
@@ -70,7 +70,7 @@ const CartListReducer = (state = {}, action) => {
     case ADD_TO_CART_FAIL:
       return { loading: false, detail: action.payload };
     case CARTLIST_ITEM_UPDATE:
-      let target = state.cartItemIdList.indexOf(Number(action.payload.id));
+      let target = state.cartItemIdList.indexOf(action.payload.id);
       if (target === -1) return state;
       const updateCartItemQtyList = state.cartItemQtyList.map((item, idx) => {
         return idx === target ? Number(action.payload.qty) : item;
@@ -103,9 +103,7 @@ const CartListReducer = (state = {}, action) => {
       //   };
       // }
       const targetInd = state.cartItemIdList.indexOf(action.payload);
-      console.log(action.payload);
-      console.log(targetInd);
-      if (targetInd == -1) return state;
+      if (targetInd === -1) return state;
       const removedCartItemIdList = [
         ...state.cartItemIdList.slice(0, targetInd),
         ...state.cartItemIdList.slice(

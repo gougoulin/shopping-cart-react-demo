@@ -9,8 +9,6 @@ import {
 const update_cartlist_item = (qty, id) => (dispatch) => {
   try {
     if (Number.parseInt(qty) === 0) {
-      console.log("the qty is 0");
-      console.log("will dispatch remove");
     }
     Number.parseInt(qty) === 0
       ? dispatch({ type: ITEM_REMOVE, payload: id })
@@ -23,7 +21,6 @@ const update_cartlist_item = (qty, id) => (dispatch) => {
 };
 
 const removeItem = (id) => (dispatch) => {
-  console.log("start remove item");
   dispatch({ type: ITEM_REMOVE, payload: id });
 };
 

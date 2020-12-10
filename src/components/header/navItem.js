@@ -11,6 +11,9 @@ const NavItem = ({ url, text }) => {
   );
 };
 
-NavItem.propTypes = {};
+NavItem.propTypes = {
+  url: PropTypes.string,
+  text: PropTypes.string,
+};
 
 export default NavItem;

@@ -10,7 +10,7 @@ const SortListItem = ({ name, isAscend, action }) => {
   };
   return (
     <>
-      <a href="#" onClick={handleChange} className="filterlist__link">
+      <a href="" onClick={handleChange} className="filterlist__link">
         {name}
       </a>
     </>

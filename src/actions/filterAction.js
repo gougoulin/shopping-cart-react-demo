@@ -6,17 +6,30 @@ import {
   SORT_REVIEW_ASC,
   SORT_REVIEW_DES,
   MIN_MAX_PRICE,
-  SELECT_BY_BRANDS,
   MAX_PRICE,
   MIN_PRICE,
   GET_BRANDS,
   BRAND_TOGGLE,
   GET_FILTERED_PRODUCTS,
 } from "./constants";
-import Data from "../actions/data.json";
+import Client from "../contentful";
+// import Data from "../actions/data.json";  // abandoned, data is from Contentful API now
 
-const sortByPrice = (isAscend) => (dispatch) => {
-  const sorted = Data.products.sort((a, b) => {
+const sortByPrice = (isAscend) => async (dispatch) => {
+  const res = await Client.getEntries({
+    content_type: "products",
+    // order: "fields.price",
+  });
+  const data = res.items;
+
+  const products = data.map((item) => {
+    return {
+      id: item.sys.id,
+      ...item.fields,
+      url: item.fields.images[0].fields.file.url,
+    };
+  });
+  const sorted = products.sort((a, b) => {
     return a.price - b.price;
   });
   try {
@@ -28,9 +41,22 @@ const sortByPrice = (isAscend) => (dispatch) => {
   }
 };
 
-const sortByRating = (isAscend) => (dispatch) => {
+const sortByRating = (isAscend) => async (dispatch) => {
   try {
-    const sorted = Data.products.sort((a, b) => {
+    const res = await Client.getEntries({
+      content_type: "products",
+      // order: "fields.price",
+    });
+    const data = res.items;
+
+    const products = data.map((item) => {
+      return {
+        id: item.sys.id,
+        ...item.fields,
+        url: item.fields.images[0].fields.file.url,
+      };
+    });
+    const sorted = products.sort((a, b) => {
       return a.rating - b.rating;
     });
     isAscend
@@ -41,9 +67,22 @@ const sortByRating = (isAscend) => (dispatch) => {
   }
 };
 
-const sortByReview = (isAscend) => (dispatch) => {
+const sortByReview = (isAscend) => async (dispatch) => {
   try {
-    const sorted = Data.products.sort((a, b) => {
+    const res = await Client.getEntries({
+      content_type: "products",
+      // order: "fields.price",
+    });
+    const data = res.items;
+
+    const products = data.map((item) => {
+      return {
+        id: item.sys.id,
+        ...item.fields,
+        url: item.fields.images[0].fields.file.url,
+      };
+    });
+    const sorted = products.sort((a, b) => {
       return a.numReviews - b.numReviews;
     });
     isAscend
@@ -54,9 +93,22 @@ const sortByReview = (isAscend) => (dispatch) => {
   }
 };
 
-const minmaxPrice = (min, max) => (dispatch) => {
+const minmaxPrice = (min, max) => async (dispatch) => {
   try {
-    const filtered = Data.products.filter((item) => {
+    const res = await Client.getEntries({
+      content_type: "products",
+      // order: "fields.price",
+    });
+    const data = res.items;
+
+    const products = data.map((item) => {
+      return {
+        id: item.sys.id,
+        ...item.fields,
+        url: item.fields.images[0].fields.file.url,
+      };
+    });
+    const filtered = products.filter((item) => {
       return item.price >= min && item.price <= max;
     });
     dispatch({ type: MIN_MAX_PRICE, payload: filtered });
@@ -65,7 +117,7 @@ const minmaxPrice = (min, max) => (dispatch) => {
   }
 };
 
-const setMinPrice = (minValue) => (dispatch) => {
+const setMinPrice = (minValue) => async (dispatch) => {
   try {
     dispatch({ type: MIN_PRICE, payload: minValue });
   } catch (error) {
@@ -73,7 +125,7 @@ const setMinPrice = (minValue) => (dispatch) => {
   }
 };
 
-const setMaxPrice = (maxValue) => (dispatch) => {
+const setMaxPrice = (maxValue) => async (dispatch) => {
   try {
     dispatch({ type: MAX_PRICE, payload: maxValue });
   } catch (error) {
@@ -86,28 +138,9 @@ const setMaxPrice = (maxValue) => (dispatch) => {
  * @param {*} brand
  * toggle the checked status of the BRAND
  */
-const toggleBrand = (brand) => (dispatch) => {
+const toggleBrand = (brand) => async (dispatch) => {
   try {
     dispatch({ type: BRAND_TOGGLE, payload: brand });
-  } catch (error) {
-    console.log(error.message);
-  }
-};
-/**
- *
- * @param {*} brand
- * toggle the checked status of the BRAND
- * send products data and brand name to the Filter Reducer
- */
-const selectByBrands = (brands) => (dispatch) => {
-  try {
-    const products = Data.products;
-
-    // dispatch({
-    //   type: SELECT_BY_BRANDS,
-    //   // if no brand is selected, return all products
-    //   payload: selectedProducts ? selectedProducts : products,
-    // });
   } catch (error) {
     console.log(error.message);
   }
@@ -118,14 +151,14 @@ const selectByBrands = (brands) => (dispatch) => {
  * generate the brand filter list components
  * To initialize the Filter section in home page
  */
-const getBrands = () => (dispatch) => {
+const getBrands = () => async (dispatch) => {
   try {
     dispatch({
       type: GET_BRANDS,
       payload: [
         { name: "apple", isChecked: false },
         { name: "dyson", isChecked: false },
-        { name: "beats", isChecked: false },
+        { name: "google", isChecked: false },
         { name: "dell", isChecked: false },
         { name: "samsung", isChecked: false },
       ],
@@ -138,10 +171,23 @@ const getBrands = () => (dispatch) => {
 /**
  * whenever filter state changes, get products to be shown on home page
  */
-const getFilteredProducts = () => (dispatch) => {
+const getFilteredProducts = () => async (dispatch) => {
   try {
-    const products = Data.products;
-    dispatch({ type: GET_FILTERED_PRODUCTS, payload: products });
+    const res = await Client.getEntries({
+      content_type: "products",
+      // order: "fields.price",
+    });
+    const data = res.items;
+
+    const products = data.map((item) => {
+      return {
+        id: item.sys.id,
+        ...item.fields,
+        url: item.fields.images[0].fields.file.url,
+      };
+    });
+    const _products = products;
+    dispatch({ type: GET_FILTERED_PRODUCTS, payload: _products });
   } catch (error) {}
 };
 
@@ -152,7 +198,6 @@ export {
   minmaxPrice,
   setMinPrice,
   setMaxPrice,
-  selectByBrands,
   getBrands,
   toggleBrand,
   getFilteredProducts,

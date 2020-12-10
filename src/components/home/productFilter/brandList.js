@@ -8,7 +8,6 @@ const BrandList = () => {
   const brands = useSelector((state) => state.filter.brands);
   useEffect(() => {
     dispatch(getBrands());
-    return () => {};
   }, []);
   const brandElemList =
     brands &&

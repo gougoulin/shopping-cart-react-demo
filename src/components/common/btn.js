@@ -9,6 +9,9 @@ const Button = ({ btnName, handler }) => {
   );
 };
 
-Button.propTypes = {};
+Button.propTypes = {
+  btnName: PropTypes.string,
+  handler: PropTypes.func,
+};
 
 export default Button;

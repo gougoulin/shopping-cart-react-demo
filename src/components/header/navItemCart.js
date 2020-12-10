@@ -18,4 +18,8 @@ const NavItemCart = ({ numCart }) => {
   );
 };
 
+NavItemCart.propTypes = {
+  numCart: PropTypes.number,
+};
+
 export default NavItemCart;
