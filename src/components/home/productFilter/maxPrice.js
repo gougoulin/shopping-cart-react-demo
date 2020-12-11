@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   getFilteredProducts,
   setMaxPrice,
@@ -8,6 +8,7 @@ import InputQty from "../../common/inputQty";
 
 const MaxPrice = () => {
   const dispatch = useDispatch();
+  const value = useSelector((state) => state.filter.maxPrice);
   const handler = (maxValue) => {
     dispatch(setMaxPrice(maxValue));
     dispatch(getFilteredProducts());
@@ -19,6 +20,7 @@ const MaxPrice = () => {
         placeholder="8888"
         morestyle=" max__price"
         type="text"
+        current={value}
       />
     </>
   );

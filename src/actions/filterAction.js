@@ -95,23 +95,24 @@ const sortByReview = (isAscend) => async (dispatch) => {
 
 const minmaxPrice = (min, max) => async (dispatch) => {
   try {
-    const res = await Client.getEntries({
-      content_type: "products",
-      // order: "fields.price",
-    });
-    const data = res.items;
+    // const res = await Client.getEntries({
+    //   content_type: "products",
+    //   // order: "fields.price",
+    // });
+    // const data = res.items;
 
-    const products = data.map((item) => {
-      return {
-        id: item.sys.id,
-        ...item.fields,
-        url: item.fields.images[0].fields.file.url,
-      };
-    });
-    const filtered = products.filter((item) => {
-      return item.price >= min && item.price <= max;
-    });
-    dispatch({ type: MIN_MAX_PRICE, payload: filtered });
+    // const products = data.map((item) => {
+    //   return {
+    //     id: item.sys.id,
+    //     ...item.fields,
+    //     url: item.fields.images[0].fields.file.url,
+    //   };
+    // });
+    // const filtered = products.filter((item) => {
+    //   return item.price >= min && item.price <= max;
+    // });
+    // dispatch({ type: MIN_MAX_PRICE, payload: filtered });
+    dispatch({ type: GET_FILTERED_PRODUCTS });
   } catch (error) {
     console.log(error.message);
   }
@@ -120,6 +121,7 @@ const minmaxPrice = (min, max) => async (dispatch) => {
 const setMinPrice = (minValue) => async (dispatch) => {
   try {
     dispatch({ type: MIN_PRICE, payload: minValue });
+    dispatch({ type: GET_FILTERED_PRODUCTS });
   } catch (error) {
     console.log(error.message);
   }
@@ -128,6 +130,7 @@ const setMinPrice = (minValue) => async (dispatch) => {
 const setMaxPrice = (maxValue) => async (dispatch) => {
   try {
     dispatch({ type: MAX_PRICE, payload: maxValue });
+    dispatch({ type: GET_FILTERED_PRODUCTS });
   } catch (error) {
     console.log(error.message);
   }

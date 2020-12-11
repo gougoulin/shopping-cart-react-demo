@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   getFilteredProducts,
   setMinPrice,
@@ -8,6 +8,7 @@ import InputQty from "../../common/inputQty";
 
 const MinPrice = () => {
   const dispatch = useDispatch();
+  const value = useSelector((state) => state.filter.minPrice);
   const handler = (minValue) => {
     dispatch(setMinPrice(minValue));
     dispatch(getFilteredProducts());
@@ -20,6 +21,7 @@ const MinPrice = () => {
         morestyle=" min__price"
         type="text"
         min="0"
+        current={value}
       />
     </>
   );

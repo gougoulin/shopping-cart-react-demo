@@ -2,12 +2,12 @@ import {
   BRAND_TOGGLE,
   FILTER_RESET,
   GET_BRANDS,
-  INTERSECT_FILTER,
+  // INTERSECT_FILTER,
   MAX_PRICE,
   MIN_MAX_PRICE,
   MIN_PRICE,
-  SELECT_BY_BRANDS,
-  SORT_INTERSECT_FILTER,
+  // SELECT_BY_BRANDS,
+  // SORT_INTERSECT_FILTER,
   SORT_PRICE_ASC,
   SORT_PRICE_DES,
   SORT_RATING_ASC,
@@ -25,7 +25,7 @@ const FilterReducer = (state = {}, action) => {
         item.isChecked = false;
         return item;
       });
-      return { brands };
+      return { brands, minPrice: "", maxPrice: "" };
 
     // sort filters
     case SORT_PRICE_ASC:
@@ -73,22 +73,25 @@ const FilterReducer = (state = {}, action) => {
      * default: display contains prdocuts as is get from server
      */
     case GET_FILTERED_PRODUCTS:
-      const products = state.sorted || action.payload;
+      const products = state.sorted
+        ? state.sorted
+        : state.productList
+        ? state.productList.products
+        : action.payload;
       const updateDisplay = products.filter((item) => {
         let result = true;
-        if (state.minPrice > state.maxPrice) {
+        if (Number(state.minPrice) > Number(state.maxPrice)) {
           console.log("Error: min price is larger than max price");
           return true;
         }
         if (state.minPrice) {
-          result = item.price >= state.minPrice && result;
+          result = Number(item.price) >= Number(state.minPrice) && result;
         }
         if (state.maxPrice) {
-          result = item.price <= state.maxPrice && result;
+          result = Number(item.price) <= Number(state.maxPrice) && result;
         }
         return result;
       });
-      console.log(updateDisplay);
       /**
        * if all checkboxes are not checked, do nothing
        * pick up all checked brands
@@ -109,18 +112,18 @@ const FilterReducer = (state = {}, action) => {
           : updateDisplay;
       return { ...state, display: selectedProductsByBrand };
 
-    case INTERSECT_FILTER:
-      let setScreened = new Set([...state.screened]);
-      let setSelected = new Set([...state.selected]);
-      const intersected = setScreened.filter((item) => setSelected.has(item));
-      return { ...state, intersected };
-    case SORT_INTERSECT_FILTER:
-      let setSort = new Set([...state.sorted]);
-      let setFiltered = new Set([...state.intersected]);
-      const sortIntersected = setSort.filter((item) => setFiltered.has(item));
-      return { ...state, sortIntersected };
-    case SELECT_BY_BRANDS:
-      return { ...state, selected: action.payload };
+    // case INTERSECT_FILTER:
+    //   let setScreened = new Set([...state.screened]);
+    //   let setSelected = new Set([...state.selected]);
+    //   const intersected = setScreened.filter((item) => setSelected.has(item));
+    //   return { ...state, intersected };
+    // case SORT_INTERSECT_FILTER:
+    //   let setSort = new Set([...state.sorted]);
+    //   let setFiltered = new Set([...state.intersected]);
+    //   const sortIntersected = setSort.filter((item) => setFiltered.has(item));
+    //   return { ...state, sortIntersected };
+    // case SELECT_BY_BRANDS:
+    //   return { ...state, selected: action.payload };
 
     default:
       return state;

@@ -1,12 +1,22 @@
 import React, { useState } from "react";
 
 const InputQty = (props) => {
-  const { placeholder, type, min, max, morestyle, number, handler, id } = props;
+  const {
+    placeholder,
+    type,
+    min,
+    max,
+    morestyle,
+    number,
+    handler,
+    id,
+    current,
+  } = props;
 
-  const [qty, setQty] = useState(number ? number : "");
+  // const [qty, setQty] = useState(number ? number : "");
 
   const handleChange = (e) => {
-    setQty(e.target.value);
+    // setQty(e.target.value);
     handler(e.target.value, id);
   };
 
@@ -14,7 +24,7 @@ const InputQty = (props) => {
     <input
       className={morestyle ? "num__input" + morestyle : "num__input"}
       type={type}
-      value={qty}
+      value={current}
       min={min}
       max={max}
       onChange={handleChange}
